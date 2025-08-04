@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manan Sharma | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --bg-color: #222526;
+      --text-color: #e0e0e0;
+      --muted-color: #939393;
+      --accent: #fff;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 50px 0;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 25px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1c1c1cae;  
+      backdrop-filter: blur(10px);             
+      -webkit-backdrop-filter: blur(10px);  
+      z-index: 1000;
+      transition: all 0.3s ease;
+      animation: slideDown 1s ease-out forwards;
+      opacity: 0;
+    }
+
+    .navbar.scrolled {
+      background-color: #1c1c1cae; 
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      padding: 15px 5%;
+    }
+
+    @keyframes slideDown {
+      0% {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .nav-link {
+      position: relative;
+      color: var(--muted-color);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link:hover {
+      color: var(--text-color);
+    }
+
+   
+    .nav-menu {
+      display: flex;
+      gap: 30px;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text-color);
+      text-decoration: none;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 20vh 5% 10vh;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .hero-title.animate-text {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1px;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+
+    .animate-text span {
+      opacity: 0;
+      display: inline-block;
+      transform: translateY(20px);
+      animation: fadeUp 0.6s forwards;
+    }
+
+    .animate-text span:nth-child(1)  { animation-delay: 0s; }
+    .animate-text span:nth-child(2)  { animation-delay: 0.05s; }
+    .animate-text span:nth-child(3)  { animation-delay: 0.10s; }
+    .animate-text span:nth-child(4)  { animation-delay: 0.15s; }
+    .animate-text span:nth-child(5)  { animation-delay: 0.20s; }
+    .animate-text span:nth-child(6)  { animation-delay: 0.25s; }
+    .animate-text span:nth-child(7)  { animation-delay: 0.30s; }
+    .animate-text span:nth-child(8)  { animation-delay: 0.35s; }
+    .animate-text span:nth-child(9)  { animation-delay: 0.40s; }
+    .animate-text span:nth-child(10) { animation-delay: 0.45s; }
+    .animate-text span:nth-child(11) { animation-delay: 0.50s; }
+    .animate-text span:nth-child(12) { animation-delay: 0.55s; }
+    .animate-text span:nth-child(13) { animation-delay: 0.60s; }
+    .animate-text span:nth-child(14) { animation-delay: 0.65s; }
+    .animate-text span:nth-child(15) { animation-delay: 0.70s; }
+    .animate-text span:nth-child(16) { animation-delay: 0.75s; }
+    .animate-text span:nth-child(17) { animation-delay: 0.80s; }
+    .animate-text span:nth-child(18) { animation-delay: 0.85s; }
+    .animate-text span:nth-child(19) { animation-delay: 0.90s; }
+    .animate-text span:nth-child(20) { animation-delay: 0.95s; }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--muted-color);
+      max-width: 600px;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeInUp 0.6s ease-out forwards;
+      animation-delay: 0.9s; /* starts after the name animation ends */
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+    .section-title {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .about-text,
+    .contact-section p {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+    }
+
+    #contact .section-title {
+      color: var(--bg-color);
+    }
+
+    .about-text {
+      color: var(--text-color);
+    }
+
+    .contact-section p {
+      color: #222526;
+    }
+
+    .project-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      background: #353A3E;
+      padding: 30px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      background: #1a1a1a;
+    }
+
+    .project-card h3 {
+      margin-bottom: 15px;
+    }
+
+    .project-card p {
+      margin-bottom: 15px;
+    }
+
+    .project-link {
+      color: #85a8cd;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+      color: #DCD7C9;
+    }
+
+    .certificate-list a {
+      display: block;
+      background: #353A3E;
+      padding: 2rem;
+      color: #e0e0e0;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      border: 2px solid #353A3E;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: border-color 0.3s;
+      text-align: center;
+    }
+
+    .certificate-list a:hover {
+      border-color: var(--accent);
+      text-decoration-style: wavy;
+    }
+
+    .footer {
+      background: #F0F0F0;
+      text-align: center;
+      padding: 30px 5%;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+
+    .social-icons a {
+      color: var(--muted-color);
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: var(--bg-color);
+    }
+
+    .copyright {
+      color: var(--muted-color);
+      font-size: 0.9rem;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid #444;
+      margin: 3rem auto;
+      max-width: 700px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      .nav-menu {
+        flex-direction: column;
+        align-items: flex-end;
+        position: absolute;
+        top: 100%;
+        right: 5%;
+        background: #1c1c1c;
+        width: 200px;
+        display: none;
+        padding: 1rem;
+        border-radius: 6px;
+      }
+
+      .nav-menu.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: var(--text-color);
+      }
+
+      .navbar {
+        position: relative;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .menu-toggle {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title.animate-text span {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 415px) {
+      .hero-title.animate-text span {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .hero-title.animate-text span {
+        font-size: 1.7rem;
+      }
+    }
+
+    .custom-footer {
+      background: #f0f0f0;
+      border: 1px solid #222;
+      border-radius: 18px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      padding: 2.2rem;
+      padding-bottom: 1rem;
+      color: #222;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .footer-column h4 {
+      font-size: 1.25rem;
+      color: #1a1a1a;
+      margin-bottom: 1rem;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-column ul li a {
+      text-decoration: none;
+      color: #444;
+      font-size: 0.95rem;
+    }
+
+    .footer-column ul li a:hover {
+      color: #000;
+    }
+
+    .footer-logo {
+      width: 150px;
+      height: auto;
+      margin: 1.3rem;
+      margin-bottom: 0.5rem;
+      margin-left: 4.8rem;
+      align-items: center;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 15px;
+      font-size: 1.3rem;
+      margin-top: 8px;
+      justify-content: flex-start;
+      margin-left: 0 !important;
+      padding-left: 0 !important;
+    }
+
+    .footer-social a {
+      color: #444;
+    }
+
+    .footer-social a:hover {
+      color: #000;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: #777;
+      border-top: 1px solid #ccc;
+      padding-top: 1rem;
+    }
+
+    .contact-email-alt {
+      display: inline-flex;
+      align-items: center;
+      color: #444;
+      font-weight: 500;
+      font-size: 1rem;
+      transform: translateX(-15px);
+      transition: padding-left 0.3s ease;
+    }
+
+    @media (max-width: 600px) {
+      .contact-email-alt {
+        transform: translateX(1px);
+      }
+    }
+
+    .contact-email-alt i {
+      opacity: 0;
+      margin-right: 0;
+      transform: translateX(-14px);
+      transition: opacity 0.3s ease,  transform 0.3s ease;
+      color: #1a1a1a;
+    }
+
+    .contact-email-alt a {
+      text-decoration: none;
+      color: #1a1a1a;
+      font-size: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-email-alt:hover i {
+      opacity: 1;
+      transform: translateX(3px);
+      margin-right: 8px;
+      margin-top: 2px;
+    }
+
+    .contact-email-alt:hover a {
+      transform: translateX(4px);
+      text-decoration: underline;
+    }
+
+    .contact-label {
+      font-size: 0.95rem;
+      color: #444;
+      font-weight: normal;
+      margin-bottom: 0.5rem;
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <a href="#" class="logo">My Portfolio</a>
+    <div class="menu-toggle" onclick="document.querySelector('.nav-menu').classList.toggle('show')">
+      <i class="fas fa-bars"></i>
+    </div>
+    <nav class="nav-menu">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1 class="hero-title animate-text">
+    <span>H</span><span>i</span><span>,</span><span>&nbsp;</span>
+    <span>I</span><span>'</span><span>m</span><span>&nbsp;</span>
+    <span>M</span><span>a</span><span>n</span><span>a</span><span>n</span><span>&nbsp;</span>
+    <span>S</span><span>h</span><span>a</span><span>r</span><span>m</span><span>a</span>
+  </h1>
+
+    <p class="hero-subtitle">I build elegant, functional web & Python projects that solve real problems.</p>
+  </section>
+
+  <hr />
+
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <p class="about-text">
+        I'm a self-taught programmer with a focus on Python and frontend development. I love automating tasks, exploring new tech, and building tools that help people.
+      </p>
+    </div>
+  </section>
+
+  <hr />
+
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="project-list">
+        <div class="project-card">
+          <h3>Advanced Calculator</h3>
+          <p>A modular Python calculator with algebra, calculus, and combinatorics support.</p>
+          <a href="https://github.com/MaybeManan/Advance-Calculator.git" target="_blank" class="project-link">View on GitHub</a>
+        </div>
+        <div class="project-card">
+          <h3>Project Two</h3>
+          <p>A placeholder for your next great project.</p>
+          <a href="#" class="project-link">Coming Soon</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certificates">
+    <h2 class="section-title">Certificates</h2>
+    <div class="certificate-list">
+      <a href="#" target="_blank">CS50's Introduction to Programming with Python (Harvard)</a>
+      <a href="https://coursera.org/share/c23007a27f3f4a08c722dbcb24a800b2" target="_blank">Crash Course on Python by Google (Coursera)</a>
+  </div>
+  </section>
+
+  <footer class="custom-footer">
+    <div class="footer-container">
+      <div class="footer-column logo-column">
+        <img src="ChatGPT_Image_Aug_4__2025__08_52_22_PM-removebg-preview.png" alt="Logo" class="footer-logo" >
+      </div>
+
+      <div class="footer-column">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#certificates">Certificates</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Contact</h4>
+      <p class="contact-email-alt">
+        <i class="fas fa-arrow-right"></i>
+        <a href="mailto:manan.codes@outlook.com">manan.codes@outlook.com</a>
+      </p>
+        <!-- <p class="contact-label">Social Links:</p> -->
+        <div class="footer-social">
+          <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Manan Sharma. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', function () {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 20) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+
+</body>
+</html>
