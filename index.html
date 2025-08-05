@@ -524,10 +524,195 @@
       margin-bottom: 0.5rem;
     }
 
+    #skills .skills-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+    }
+
+    .skill-category {
+      flex: 1;
+      min-width: 250px;
+      background: linear-gradient(135deg, #2f3235, #3f4448);
+      padding: 1.5rem;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInUp 0.6s ease forwards;
+      opacity: 0;
+    }
+
+    .skill-category:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    }
+
+    .skill-category h3 {
+      color: #fff;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      padding-top: 35px;
+    }
+
+    .skill-category::before {
+      content: '';
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      font-size: 1.4rem;
+      color: var(--accent);
+    }
+
+    .skill-category:nth-child(1)::before { content: "\f0ae"; } 
+    .skill-category:nth-child(2)::before { content: "\f121"; } 
+    .skill-category:nth-child(3)::before { content: "\f0ad"; } 
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .skill-tags span {
+      background-color: rgba(255,255,255,0.1);
+      color: var(--text-color);
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    /* .skill-tags span:hover {
+      background-color: var(--accent);
+      color: var(--bg-color);
+      transform: scale(1.05);
+    } */
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      #skills .skills-wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    .floating-shapes {
+      /* position: fixed; */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none; 
+      z-index: 0; 
+      overflow: hidden;
+    }
+
+    .shape {
+      position: absolute;
+      opacity: 0.07; 
+    }
+
+    .circle {
+      width: 160px;
+      height: 160px;
+      background: #85a8cd;
+      border-radius: 50%;
+      top: 10%;
+      left: 15%;
+    }
+
+    .square {
+      width: 140px;
+      height: 140px;
+      background: #fff;
+      top: 50%;
+      left: 70%;
+    }
+
+    .triangle {
+      width: 0;
+      height: 0;
+      border-left: 90px solid transparent;
+      border-right: 90px solid transparent;
+      border-bottom: 150px solid #e0e0e0;
+      top: 70%;
+      left: 20%;
+    }
+
+    .blob {
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle at 30% 30%, #fff, transparent 70%);
+      border-radius: 50%;
+      top: 40%;
+      left: 50%;
+    }
+
+    /* .float {
+      animation: drift 25s infinite ease-in-out alternate;
+    } */
+
+    @keyframes drift {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+      25% {
+        transform: translate(50px, -50px) rotate(40deg);
+      }
+      50% {
+        transform: translate(-30px, 60px) rotate(-25deg);
+      }
+      75% {
+        transform: translate(40px, 10px) rotate(30deg);
+      }
+      100% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+    }
+
+    .hidden-section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+
+    .show-section {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
   </style>
 </head>
 <body>
+
+  <!-- 🪐 Zero-Gravity Floating Shapes -->
+  <div class="floating-shapes">
+    <div class="shape float circle"></div>
+    <div class="shape float square"></div>
+    <div class="shape float triangle"></div>
+    <div class="shape float blob"></div>
+  </div>
 
   <header class="navbar">
     <a href="#" class="logo">My Portfolio</a>
@@ -565,7 +750,49 @@
 
   <hr />
 
-  <section id="projects">
+  <section id="skills" class="hidden-section">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-wrapper">
+        <div class="skill-category">
+          <h3>Conceptual Skills</h3>
+          <div class="skill-tags">
+            <span>Version Control</span>
+            <span>Problem Solving</span>
+            <span>Documentation Writing</span>
+            <span>Time Management</span>
+          </div>
+        </div>        
+        <div class="skill-category">
+          <h3>Languages</h3>
+          <div class="skill-tags">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>Python</span>
+            <span>Scratch</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Tools</h3>
+          <div class="skill-tags">
+            <span>Git</span>
+            <span>GitHub</span>
+            <span>Photoshop</span>
+            <span>Premiere Pro</span>
+            <span>VS Code</span>
+            <span>Excel</span>
+            <span>PowerPoint</span>
+            <span>Canva</span>
+            <span>OneNote</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <section id="projects" class="hidden-section">
     <div class="container">
       <h2 class="section-title">Projects</h2>
       <div class="project-list">
@@ -583,7 +810,7 @@
     </div>
   </section>
 
-  <section id="certificates">
+  <section id="certificates" class="hidden-section">
     <h2 class="section-title">Certificates</h2>
     <div class="certificate-list">
       <a href="#" target="_blank">CS50's Introduction to Programming with Python (Harvard)</a>
@@ -635,6 +862,78 @@
         navbar.classList.remove('scrolled');
       }
     });
+
+    const shapes = document.querySelectorAll(".floating-shapes .shape");
+    const shapeData = [];
+
+    // Store original positions
+    shapes.forEach(shape => {
+      const rect = shape.getBoundingClientRect();
+      shapeData.push({
+        el: shape,
+        baseX: rect.left + window.scrollX,
+        baseY: rect.top + window.scrollY,
+        offsetX: 0,
+        offsetY: 0,
+        floatPhase: Math.random() * Math.PI * 2 // for natural variation
+      });
+    });
+
+    let mouseX = null, mouseY = null;
+
+    document.addEventListener("mousemove", e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function animateShapes() {
+      const time = Date.now() * 0.001; // seconds
+
+      shapeData.forEach(data => {
+        // Gentle floating motion
+        const floatX = Math.sin(time + data.floatPhase) * 15;
+        const floatY = Math.cos(time * 0.8 + data.floatPhase) * 15;
+
+        // Push away if mouse is close
+        if (mouseX !== null && mouseY !== null) {
+          const dx = mouseX - (data.baseX + data.offsetX);
+          const dy = mouseY - (data.baseY + data.offsetY);
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 200) {
+            const angle = Math.atan2(dy, dx);
+            const pushStrength = (200 - dist) / 200; // 0 to 1
+            data.offsetX -= Math.cos(angle) * pushStrength * 25;
+            data.offsetY -= Math.sin(angle) * pushStrength * 25;
+          }
+        }
+        data.offsetX *= 0.95;
+        data.offsetY *= 0.95;
+        data.el.style.transform =
+          `translate(${floatX + data.offsetX}px, ${floatY + data.offsetY}px)`;
+      });
+
+      requestAnimationFrame(animateShapes);
+    }
+
+    animateShapes();
+
+    // Animate sections on scroll into view
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show-section");
+            observer.unobserve(entry.target); // Only animate once
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll(".hidden-section").forEach(section => {
+        observer.observe(section);
+      });
+    });
+
   </script>
 
 </body>
