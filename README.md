@@ -84,7 +84,7 @@ Aspiring computer scientist. Passionate about absurdism, logic, and building thi
 
 ## 📬 Contact
 
-- **Email:** [manan.codes@outlook.com](mailto:your-email@example.com)
+- **Email:** [manan.codes@outlook.com](mailto:manan.codes@outlook.com)
 - **GitHub:** [@MaybeManan](https://github.com/MaybeManan)
 - **LinkedIn:** [Manan Sharma](https://www.linkedin.com/in/manan-sharma-page/)
 
