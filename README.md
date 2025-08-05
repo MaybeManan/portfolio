@@ -69,7 +69,7 @@ To run this project locally:
 
 ## 📷 Screenshots
 
-![Portfolio Preview](logo.png)
+![Portfolio Preview](maybemanan.github.io_portfolio_.png)
 
 ---
 
