@@ -589,14 +589,14 @@
       border-radius: 20px;
       font-size: 0.9rem;
       transition: all 0.3s ease;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      box-shadow: 0 2px 3px rgba(0,0,0,0.3);
     }
 
-    /* .skill-tags span:hover {
-      background-color: var(--accent);
-      color: var(--bg-color);
+    .skill-tags span:hover {
       transform: scale(1.05);
-    } */
+      transform: translateY(-5px);
+      box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+    }
 
     @keyframes fadeInUp {
       0% {
@@ -669,10 +669,6 @@
       left: 50%;
     }
 
-    /* .float {
-      animation: drift 25s infinite ease-in-out alternate;
-    } */
-
     @keyframes drift {
       0% {
         transform: translate(0, 0) rotate(0deg);
@@ -691,10 +687,72 @@
       }
     }
 
+    @media (max-width: 880px) {
+      .circle {
+        width: 100px;
+        height: 100px;
+        top: 7%;
+        left: 18%;
+      }
+
+      .square {
+        width: 90px;
+        height: 90px;
+        top: 40%;
+        left: 70%;
+      }
+
+      .triangle {
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-bottom: 90px solid #e0e0e0;
+        top: 55%;
+        left: 15%;
+      }
+
+      .blob {
+        width: 160px;
+        height: 160px;
+        top: 25%;
+        left: 50%;
+      }
+    }
+
+    @media (max-width: 573px) {
+      .circle {
+        width: 80px;
+        height: 80px;
+        top: 12%;
+        left: 12%;
+      }
+
+      .square {
+        width: 70px;
+        height: 70px;
+        top: 40%;
+        left: 67%;
+      }
+
+      .triangle {
+        border-left: 40px solid transparent;
+        border-right: 40px solid transparent;
+        border-bottom: 75px solid #e0e0e0;
+        top: 50%;
+        left: 15%;
+      }
+
+      .blob {
+        width: 120px;
+        height: 120px;
+        top: 25%;
+        left: 50%;
+      }
+    }
+
     .hidden-section {
       opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease-out;
+      transform: translateY(35px);
+      transition: all 0.9s ease-out;
     }
 
     .show-section {
@@ -705,8 +763,6 @@
   </style>
 </head>
 <body>
-
-  <!-- 🪐 Zero-Gravity Floating Shapes -->
   <div class="floating-shapes">
     <div class="shape float circle"></div>
     <div class="shape float square"></div>
@@ -839,7 +895,6 @@
         <i class="fas fa-arrow-right"></i>
         <a href="mailto:manan.codes@outlook.com">manan.codes@outlook.com</a>
       </p>
-        <!-- <p class="contact-label">Social Links:</p> -->
         <div class="footer-social">
           <a href="https://github.com/MaybeManan" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
           <a href="https://www.linkedin.com/in/manan-sharma-page/" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -875,7 +930,7 @@
         baseY: rect.top + window.scrollY,
         offsetX: 0,
         offsetY: 0,
-        floatPhase: Math.random() * Math.PI * 2 // for natural variation
+        floatPhase: Math.random() * Math.PI * 2 
       });
     });
 
@@ -887,7 +942,7 @@
     });
 
     function animateShapes() {
-      const time = Date.now() * 0.001; // seconds
+      const time = Date.now() * 0.001;
 
       shapeData.forEach(data => {
         // Gentle floating motion
@@ -924,7 +979,7 @@
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add("show-section");
-            observer.unobserve(entry.target); // Only animate once
+            observer.unobserve(entry.target);
           }
         });
       }, { threshold: 0.15 });
@@ -934,6 +989,21 @@
       });
     });
 
+    document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show-animation");
+          observer.unobserve(entry.target); 
+        }
+      });
+    }, { threshold: 0.2 }); 
+
+    document.querySelectorAll('.skill-category, .project-card, .certificate-list a')
+      .forEach(el => {
+        observer.observe(el);
+      });
+  });
   </script>
 
 </body>
