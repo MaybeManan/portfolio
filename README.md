@@ -17,6 +17,8 @@ A place where I share my projects, skills, and a little bit about myself — all
 
 ---
 
+<!-- Inspired by the roadmap.sh project: https://roadmap.sh/projects/single-page-cv -->
+
 ## 📂 Project Structure
 
 ```
