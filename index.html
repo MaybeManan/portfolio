@@ -229,7 +229,9 @@
     }
 
     .project-card:hover {
-      background: #1a1a1a;
+      transform: translateY(-8px);
+      background: #444a4fe1;
+      box-shadow: 0 3px 18px rgba(0,0,0,0.4);
     }
 
     .project-card h3 {
@@ -268,7 +270,7 @@
 
     .certificate-list a:hover {
       border-color: var(--accent);
-      text-decoration-style: wavy;
+      max-width: 92vw;
     }
 
     .footer {
@@ -778,7 +780,7 @@
     <nav class="nav-menu">
       <a href="#about" class="nav-link">About</a>
       <a href="#projects" class="nav-link">Projects</a>
-      <a href="#contact" class="nav-link">Contact</a>
+      <a href="#contacts" class="nav-link">Contact</a>
     </nav>
   </header>
 
@@ -889,7 +891,7 @@
         </ul>
       </div>
 
-      <div class="footer-column">
+      <div id="contacts" class="footer-column">
         <h4>Contact</h4>
       <p class="contact-email-alt">
         <i class="fas fa-arrow-right"></i>
