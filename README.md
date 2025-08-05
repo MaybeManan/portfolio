@@ -10,7 +10,7 @@
 # 🌐 My Portfolio
 
 Welcome to my personal portfolio website!  
-This site showcases my work, skills, and ways to connect with me — all in a clean, responsive design.
+A place where I share my projects, skills, and a little bit about myself — all wrapped in a clean, responsive design.
 
 ## 🔗 Live Demo
 **Visit here:** [https://maybemanan.github.io/portfolio/](https://maybemanan.github.io/portfolio/)
@@ -25,7 +25,7 @@ portfolio/
 ├── style.css       # Stylesheet
 ├── script.js       # JavaScript animations & interactions
 ├── favicon.png     # Browser tab icon
-├── logo.png        # Site logo
+├── logo.png        # Footer branding image
 ```
 
 ---
